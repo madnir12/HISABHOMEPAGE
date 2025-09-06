@@ -1,23 +1,41 @@
-import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
-  const [location] = useLocation();
+  const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "home" },
+    { name: "Services", href: "services" },
+    { name: "About", href: "about" },
+    { name: "Portfolio", href: "portfolio" },
+    { name: "Contact", href: "contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navigation.map(nav => nav.href);
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const isActive = (href: string) => {
-    if (href === "/" && location === "/") return true;
-    return href !== "/" && location.startsWith(href);
+    return activeSection === href;
   };
 
   return (
@@ -25,27 +43,36 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
+            <button
+              onClick={() => {
+                const element = document.getElementById('home');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex-shrink-0"
+            >
               <span className="text-2xl font-bold text-primary" data-testid="logo">
                 Hisab.cloud
               </span>
-            </Link>
+            </button>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <a
-                  className={`transition-colors ${
-                    isActive(item.href)
-                      ? "text-primary font-medium"
-                      : "text-foreground hover:text-primary"
-                  }`}
-                  data-testid={`nav-${item.name.toLowerCase()}`}
-                >
-                  {item.name}
-                </a>
-              </Link>
+              <button
+                key={item.name}
+                onClick={() => {
+                  const element = document.getElementById(item.href);
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`transition-colors ${
+                  isActive(item.href)
+                    ? "text-primary font-medium"
+                    : "text-foreground hover:text-primary"
+                }`}
+                data-testid={`nav-${item.name.toLowerCase()}`}
+              >
+                {item.name}
+              </button>
             ))}
             <Button 
               className="bg-primary text-primary-foreground hover:bg-primary/90"
@@ -72,19 +99,22 @@ export function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               {navigation.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <a
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                      isActive(item.href)
-                        ? "text-primary bg-primary/10"
-                        : "text-foreground hover:text-primary hover:bg-muted/10"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    data-testid={`nav-mobile-${item.name.toLowerCase()}`}
-                  >
-                    {item.name}
-                  </a>
-                </Link>
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    const element = document.getElementById(item.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    isActive(item.href)
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground hover:text-primary hover:bg-muted/10"
+                  }`}
+                  data-testid={`nav-mobile-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </button>
               ))}
               <div className="px-3 py-2">
                 <Button 
