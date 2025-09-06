@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SEO } from "@/lib/seo";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,8 +9,6 @@ import { MapPin, Mail, Phone, Clock, Send, Linkedin, Twitter, Github } from "luc
 import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
-  useScrollAnimation();
-  
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -111,7 +108,7 @@ export default function Contact() {
         keywords="Contact Hisab.cloud, ERP consultation Pakistan, ERPNext quotes, Digital invoicing inquiry, Business solutions contact"
       />
       
-      <section id="contact" className="pt-20 pb-16 lg:pt-24 lg:pb-20">
+      <section className="pt-20 pb-16 lg:pt-24 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-3xl lg:text-5xl font-bold text-foreground mb-4" data-testid="text-contact-heading">
@@ -123,7 +120,7 @@ export default function Contact() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16">
-            <div className="scroll-fade-in">
+            <div>
               <h2 className="text-2xl font-bold text-foreground mb-8" data-testid="text-get-in-touch">Get in Touch</h2>
               
               <div className="space-y-6 mb-12">
@@ -161,8 +158,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="scroll-fade-in">
-              <Card className="border border-border hover:shadow-xl transition-shadow duration-300">
+            <div>
+              <Card className="border border-border">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-card-foreground mb-6" data-testid="text-send-message">
                     Send us a Message
