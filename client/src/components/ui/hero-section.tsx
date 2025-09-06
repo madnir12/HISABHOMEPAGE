@@ -21,25 +21,25 @@ export function HeroSection({
   badges = [] 
 }: HeroSectionProps) {
   return (
-    <section className="pt-20 pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden">
+    <section className="pt-20 pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
           <div className="lg:col-span-6 animate-slide-in-left">
             <h1 
-              className="text-4xl lg:text-6xl font-bold text-foreground mb-6"
+              className="text-4xl lg:text-6xl font-bold text-white mb-6"
               data-testid="text-hero-title"
             >
               {title}
             </h1>
             <p 
-              className="text-xl text-muted-foreground mb-8 max-w-2xl"
+              className="text-xl text-blue-100 mb-8 max-w-2xl"
               data-testid="text-hero-subtitle"
             >
               {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                className="bg-primary text-primary-foreground px-8 py-4 text-lg font-semibold hover:bg-primary/90"
+                className="bg-white text-blue-600 px-8 py-4 text-lg font-semibold hover:bg-gray-100 rounded-lg"
                 data-testid="button-hero-primary"
               >
                 <Rocket className="w-5 h-5 mr-2" />
@@ -47,7 +47,7 @@ export function HeroSection({
               </Button>
               <Button 
                 variant="outline" 
-                className="px-8 py-4 text-lg font-semibold hover:bg-muted/10"
+                className="px-8 py-4 text-lg font-semibold border-white text-white hover:bg-white/10 rounded-lg"
                 data-testid="button-hero-secondary"
               >
                 <Play className="w-5 h-5 mr-2" />
