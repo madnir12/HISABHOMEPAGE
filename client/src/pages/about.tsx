@@ -1,6 +1,9 @@
 import { SEO } from "@/lib/seo";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function About() {
+  useScrollAnimation();
+  
   const founders = [
     {
       name: "Madni",
@@ -40,7 +43,7 @@ export default function About() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div>
+            <div className="scroll-fade-in">
               <h2 className="text-3xl font-bold text-foreground mb-6" data-testid="text-mission-heading">Our Mission</h2>
               <p className="text-lg text-muted-foreground mb-6" data-testid="text-mission-paragraph-1">
                 We believe every business deserves access to world-class ERP solutions. Our mission is to democratize enterprise software by making ERPNext accessible, affordable, and perfectly tailored to Pakistani business needs.
@@ -59,11 +62,11 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="scroll-fade-in">
               <img 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
                 alt="Professional team collaborating on business solutions" 
-                className="rounded-2xl shadow-2xl w-full"
+                className="rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-500"
                 data-testid="img-team-collaboration"
               />
             </div>
@@ -77,7 +80,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {founders.map((founder, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center scroll-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
                 <div className="relative mb-6">
                   <img 
                     src={founder.imageUrl} 

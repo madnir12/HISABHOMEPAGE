@@ -21,10 +21,10 @@ export function HeroSection({
   badges = [] 
 }: HeroSectionProps) {
   return (
-    <section className="pt-20 pb-16 lg:pt-24 lg:pb-20">
+    <section className="pt-20 pb-16 lg:pt-24 lg:pb-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 animate-slide-in-left">
             <h1 
               className="text-4xl lg:text-6xl font-bold text-foreground mb-6"
               data-testid="text-hero-title"
@@ -55,12 +55,12 @@ export function HeroSection({
               </Button>
             </div>
           </div>
-          <div className="mt-12 lg:mt-0 lg:col-span-6">
+          <div className="mt-12 lg:mt-0 lg:col-span-6 animate-slide-in-right">
             <div className="relative">
               <img 
                 src={imageUrl} 
                 alt={imageAlt} 
-                className="rounded-2xl shadow-2xl w-full"
+                className="rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-500"
                 data-testid="img-hero-main"
               />
               {badges.map((badge, index) => (

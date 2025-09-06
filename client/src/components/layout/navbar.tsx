@@ -20,8 +20,18 @@ export function Navbar() {
     return href !== "/" && location.startsWith(href);
   };
 
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border transition-all duration-300 hover:bg-background/98">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -48,8 +58,9 @@ export function Navbar() {
               </Link>
             ))}
             <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all duration-200"
               data-testid="button-get-started"
+              onClick={() => smoothScrollTo('contact')}
             >
               Get Started
             </Button>
@@ -90,6 +101,10 @@ export function Navbar() {
                 <Button 
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   data-testid="button-mobile-get-started"
+                  onClick={() => {
+                    smoothScrollTo('contact');
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
                   Get Started
                 </Button>
