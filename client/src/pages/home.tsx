@@ -83,38 +83,38 @@ export default function Home() {
   const heroTitle = (
     <>
       Transform Your Business with{" "}
-      <span className="text-yellow-300">Smart ERP</span> Solutions
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">Smart ERP</span> Solutions
     </>
   );
 
   const features = [
     {
-      icon: <CheckCircle className="w-8 h-8 text-blue-600" />,
+      icon: <CheckCircle className="w-8 h-8 text-purple-600" />,
       title: "FBR Compliant",
       description: "100% compliant with Pakistani tax regulations and FBR requirements"
     },
     {
-      icon: <Award className="w-8 h-8 text-blue-600" />,
+      icon: <Award className="w-8 h-8 text-pink-600" />,
       title: "Certified Experts",
       description: "Team of certified ERPNext developers and business analysts"
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
+      icon: <TrendingUp className="w-8 h-8 text-red-500" />,
       title: "Proven Results",
       description: "50+ successful implementations with measurable business growth"
     },
     {
-      icon: <Shield className="w-8 h-8 text-blue-600" />,
+      icon: <Shield className="w-8 h-8 text-orange-500" />,
       title: "Secure & Reliable",
       description: "Enterprise-grade security with 99.9% uptime guarantee"
     }
   ];
 
   const companyStats = [
-    { number: "50+", label: "Projects Completed", color: "text-blue-600" },
-    { number: "5+", label: "Years Experience", color: "text-green-600" },
-    { number: "100%", label: "FBR Compliance", color: "text-orange-600" },
-    { number: "24/7", label: "Support Available", color: "text-purple-600" }
+    { number: "50+", label: "Projects Completed", color: "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600" },
+    { number: "5+", label: "Years Experience", color: "text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-500" },
+    { number: "100%", label: "FBR Compliance", color: "text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500" },
+    { number: "24/7", label: "Support Available", color: "text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500" }
   ];
 
   const portfolioProjects = [
@@ -190,8 +190,8 @@ export default function Home() {
         imageUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
         imageAlt="Business analytics dashboard"
         badges={[
-          { icon: "✓", text: "FBR Compliant", color: "bg-white text-blue-600" },
-          { icon: "⚡", text: "Real-time", color: "bg-yellow-400 text-blue-800" }
+          { icon: "✓", text: "FBR Compliant", color: "bg-gradient-to-r from-green-400 to-emerald-500 text-white" },
+          { icon: "⚡", text: "Real-time", color: "bg-gradient-to-r from-orange-400 to-red-500 text-white" }
         ]}
       />
 
@@ -210,7 +210,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center scroll-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -323,27 +323,27 @@ export default function Home() {
       </section>
 
       {/* Section 7: Contact CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-20 bg-gradient-to-br from-purple-600 via-pink-600 to-red-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="scroll-fade-in">
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               Get started with a free consultation and discover how Hisab.cloud can streamline your operations and boost your growth.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
-                className="bg-white text-blue-600 px-8 py-4 text-lg font-semibold hover:bg-gray-100 rounded-lg"
+                className="bg-white text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-lg font-bold hover:bg-gray-100 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/contact'}
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-5 h-5 mr-2 text-purple-600" />
                 Get Free Consultation
               </Button>
               <Button 
                 variant="outline" 
-                className="px-8 py-4 text-lg font-semibold border-white text-white hover:bg-white/10 rounded-lg"
+                className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm px-8 py-4 text-lg font-semibold border-white/30 text-white hover:bg-white/20 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/portfolio'}
               >
                 <ArrowRight className="w-5 h-5 mr-2" />
@@ -353,30 +353,30 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
               <div className="flex items-center text-white">
-                <div className="bg-blue-500 p-3 rounded-lg mr-4">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg mr-4">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="font-semibold">Call Us</div>
-                  <div className="text-blue-100">+92 XXX XXXXXXX</div>
+                  <div className="text-white/80">+92 XXX XXXXXXX</div>
                 </div>
               </div>
               <div className="flex items-center text-white">
-                <div className="bg-blue-500 p-3 rounded-lg mr-4">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg mr-4">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="font-semibold">Email Us</div>
-                  <div className="text-blue-100">info@hisab.cloud</div>
+                  <div className="text-white/80">info@hisab.cloud</div>
                 </div>
               </div>
               <div className="flex items-center text-white">
-                <div className="bg-blue-500 p-3 rounded-lg mr-4">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg mr-4">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="font-semibold">Visit Us</div>
-                  <div className="text-blue-100">Karachi, Pakistan</div>
+                  <div className="text-white/80">Karachi, Pakistan</div>
                 </div>
               </div>
             </div>
