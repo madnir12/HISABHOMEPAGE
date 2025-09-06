@@ -75,6 +75,10 @@ export function Navbar() {
               </button>
             ))}
             <Button 
+              onClick={() => {
+                const element = document.getElementById('contact');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               data-testid="button-get-started"
             >
@@ -118,6 +122,11 @@ export function Navbar() {
               ))}
               <div className="px-3 py-2">
                 <Button 
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   data-testid="button-mobile-get-started"
                 >

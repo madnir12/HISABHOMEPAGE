@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { Linkedin, Twitter, Github } from "lucide-react";
 
 export function Footer() {
@@ -62,14 +61,16 @@ export function Footer() {
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href}>
-                    <a 
-                      className="hover:text-primary transition-colors"
-                      data-testid={`link-service-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link.name}
-                    </a>
-                  </Link>
+                  <button
+                    onClick={() => {
+                      const element = document.getElementById(link.href.split('#')[1] || 'services');
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-primary transition-colors text-left"
+                    data-testid={`link-service-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {link.name}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -80,14 +81,22 @@ export function Footer() {
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href}>
-                    <a 
-                      className="hover:text-primary transition-colors"
-                      data-testid={`link-company-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link.name}
-                    </a>
-                  </Link>
+                  <button
+                    onClick={() => {
+                      const sectionMap: { [key: string]: string } = {
+                        '/about': 'about',
+                        '/portfolio': 'portfolio',
+                        '/contact': 'contact'
+                      };
+                      const sectionId = sectionMap[link.href] || 'home';
+                      const element = document.getElementById(sectionId);
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-primary transition-colors text-left"
+                    data-testid={`link-company-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {link.name}
+                  </button>
                 </li>
               ))}
             </ul>
