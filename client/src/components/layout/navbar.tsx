@@ -36,7 +36,7 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold text-blue-600" data-testid="logo">
+              <span className="text-2xl font-bold text-blue-700" data-testid="logo">
                 Hisab.cloud
               </span>
             </Link>
@@ -48,8 +48,8 @@ export function Navbar() {
                 <span
                   className={`transition-colors cursor-pointer ${
                     isActive(item.href)
-                      ? "text-blue-600 font-medium"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "text-blue-700 font-medium"
+                      : "text-gray-700 hover:text-blue-700"
                   }`}
                   data-testid={`nav-${item.name.toLowerCase()}`}
                 >
@@ -58,7 +58,7 @@ export function Navbar() {
               </Link>
             ))}
             <Button 
-              className="bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 px-6 py-2 rounded-lg font-medium"
+              className="bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-200 px-6 py-2 rounded-lg font-medium shadow-md"
               data-testid="button-get-started"
               onClick={() => smoothScrollTo('contact')}
             >
@@ -87,8 +87,8 @@ export function Navbar() {
                   <span
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer ${
                       isActive(item.href)
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                        ? "text-blue-700 bg-blue-50"
+                        : "text-gray-700 hover:text-blue-700 hover:bg-gray-50"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`nav-mobile-${item.name.toLowerCase()}`}
@@ -99,7 +99,7 @@ export function Navbar() {
               ))}
               <div className="px-3 py-2">
                 <Button 
-                  className="w-full bg-blue-600 text-white hover:bg-blue-700 rounded-lg font-medium"
+                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 rounded-lg font-medium shadow-md"
                   data-testid="button-mobile-get-started"
                   onClick={() => {
                     smoothScrollTo('contact');
