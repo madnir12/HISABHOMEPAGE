@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Rocket, Play } from "lucide-react";
 
 interface HeroSectionProps {
-  title: string;
+  title: string | React.ReactNode;
   subtitle: string;
   primaryButtonText: string;
   secondaryButtonText: string;

@@ -35,8 +35,8 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
-                <a
-                  className={`transition-colors ${
+                <span
+                  className={`transition-colors cursor-pointer ${
                     isActive(item.href)
                       ? "text-primary font-medium"
                       : "text-foreground hover:text-primary"
@@ -44,7 +44,7 @@ export function Navbar() {
                   data-testid={`nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
-                </a>
+                </span>
               </Link>
             ))}
             <Button 
@@ -73,8 +73,8 @@ export function Navbar() {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               {navigation.map((item) => (
                 <Link key={item.name} href={item.href}>
-                  <a
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  <span
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer ${
                       isActive(item.href)
                         ? "text-primary bg-primary/10"
                         : "text-foreground hover:text-primary hover:bg-muted/10"
@@ -83,7 +83,7 @@ export function Navbar() {
                     data-testid={`nav-mobile-${item.name.toLowerCase()}`}
                   >
                     {item.name}
-                  </a>
+                  </span>
                 </Link>
               ))}
               <div className="px-3 py-2">
