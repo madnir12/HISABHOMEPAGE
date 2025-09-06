@@ -63,12 +63,12 @@ export function Footer() {
               {serviceLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <a 
-                      className="hover:text-primary transition-colors"
+                    <span 
+                      className="hover:text-primary transition-colors cursor-pointer"
                       data-testid={`link-service-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -81,12 +81,12 @@ export function Footer() {
               {companyLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <a 
-                      className="hover:text-primary transition-colors"
+                    <span 
+                      className="hover:text-primary transition-colors cursor-pointer"
                       data-testid={`link-company-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}
