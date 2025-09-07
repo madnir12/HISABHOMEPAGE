@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Rocket, Play } from "lucide-react";
+import { Rocket, Play, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroSectionProps {
@@ -9,7 +9,7 @@ interface HeroSectionProps {
   secondaryButtonText: string;
   imageUrl: string;
   imageAlt: string;
-  badges?: Array<{ icon: string; text: string; color: string }>;
+  badges?: Array<{ icon: string | React.ReactNode; text: string; color: string }>;
 }
 
 export function HeroSection({ 
@@ -128,7 +128,11 @@ export function HeroSection({
                   data-testid={`badge-${badge.text.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <div className="flex items-center space-x-2">
-                    <span className="text-lg">{badge.icon}</span>
+                    {typeof badge.icon === 'string' ? (
+                      <span className="text-lg">{badge.icon}</span>
+                    ) : (
+                      badge.icon
+                    )}
                     <span className="font-semibold">{badge.text}</span>
                   </div>
                 </motion.div>

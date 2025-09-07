@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Settings, FileText, BarChart3, Cloud, Users, Smartphone, MapPin, Mail, Phone, Clock, Send, Linkedin, Twitter, Github } from "lucide-react";
+import { Settings, FileText, BarChart3, Cloud, Users, Smartphone, MapPin, Mail, Phone, Clock, Send, Linkedin, Twitter, Github, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -311,7 +311,7 @@ export default function Home() {
             imageAlt="Business analytics dashboard"
             badges={[
               { icon: "✓", text: "FBR Compliant", color: "bg-secondary text-secondary-foreground" },
-              { icon: "⚡", text: "Real-time", color: "bg-accent text-accent-foreground" }
+              { icon: <Zap className="w-5 h-5" />, text: "Real-time", color: "bg-accent text-accent-foreground" }
             ]}
           />
         </motion.div>
