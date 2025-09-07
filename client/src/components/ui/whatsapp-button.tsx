@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function WhatsAppButton() {
@@ -17,7 +17,7 @@ export function WhatsAppButton() {
         className="h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
         data-testid="whatsapp-button"
       >
-        <MessageCircle className="h-7 w-7" />
+        <Phone className="h-7 w-7" />
       </Button>
     </div>
   );
