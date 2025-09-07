@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { Route, Switch } from "wouter";
 import Home from "@/pages/home";
 import About from "@/pages/about";
@@ -38,6 +39,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <WhatsAppButton />
       </TooltipProvider>
     </QueryClientProvider>
   );
